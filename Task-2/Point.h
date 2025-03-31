@@ -1,20 +1,20 @@
-#pragma once
+п»ї#pragma once
 
 class Point
 {
 private:
 	/**
-	*@brief Переменная координаты x
+	*@brief РџРµСЂРµРјРµРЅРЅР°СЏ РєРѕРѕСЂРґРёРЅР°С‚С‹ x
 	*/
 		double x;
 
 	/**
-	*@brief Переменная координаты y
+	*@brief РџРµСЂРµРјРµРЅРЅР°СЏ РєРѕРѕСЂРґРёРЅР°С‚С‹ y
 	*/
 		double y;
 public:
 	/**
-	*@brief Изначальные координаты х и у для точки
+	*@brief РР·РЅР°С‡Р°Р»СЊРЅС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ С… Рё Сѓ РґР»СЏ С‚РѕС‡РєРё
 	*/
 	Point(const double x = 0, const double y = 0);
 	double getX() const;

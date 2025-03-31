@@ -1,4 +1,4 @@
-#include <cmath>
+ï»¿#include <cmath>
 #include <iostream>
 #include "Triangle.h"
 #include "Point.h"
@@ -6,7 +6,7 @@
 using namespace std;
 
 /**
-*@brief Òðåóãîëüíèê çàäàííûé òðåìÿ òî÷êàìè.
+*@brief Ð¢Ñ€ÐµÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸Ðº Ð·Ð°Ð´Ð°Ð½Ð½Ñ‹Ð¹ Ñ‚Ñ€ÐµÐ¼Ñ Ñ‚Ð¾Ñ‡ÐºÐ°Ð¼Ð¸.
 */
 Triangle::Triangle(const Point & a, const Point & b, const Point & c) : A(a), B(b), C(c)
 {
@@ -17,20 +17,20 @@ Triangle::Triangle(const Point & a, const Point & b, const Point & c) : A(a), B(
 }
 
 /**
-*@brief  Ïðîâåðêà ñóùåñòâîâàíèÿ òðóãîëüíèêà.
+*@brief  ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° ÑÑƒÑ‰ÐµÑÑ‚Ð²Ð¾Ð²Ð°Ð½Ð¸Ñ Ñ‚Ñ€ÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸ÐºÐ°.
 */
 void Triangle::check()
 {
     if ((a == b or b == c or c == a) or ((a > (b + c)) or (b > (a + c)) or (c > (b + a)))) {
-        std::cout << "Òðåóãîëüíèê íå ñóùåñòâóåò";
+        std::cout << "Ð¢Ñ€ÐµÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸Ðº Ð½Ðµ ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚";
         exit(EXIT_FAILURE);
     }
 }
 
 /**
-*@brief Âû÷èñëÿåì äëèíó ñòîðîíû òðåóãîëüíèêà.
-* @param  p1 Ïåðâàÿ òî÷êà.
-* @param  p2 Âòîðàÿ òî÷êà.
+*@brief Ð’Ñ‹Ñ‡Ð¸ÑÐ»ÑÐµÐ¼ Ð´Ð»Ð¸Ð½Ñƒ ÑÑ‚Ð¾Ñ€Ð¾Ð½Ñ‹ Ñ‚Ñ€ÐµÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸ÐºÐ°.
+* @param  p1 ÐŸÐµÑ€Ð²Ð°Ñ Ñ‚Ð¾Ñ‡ÐºÐ°.
+* @param  p2 Ð’Ñ‚Ð¾Ñ€Ð°Ñ Ñ‚Ð¾Ñ‡ÐºÐ°.
 */
 double Triangle::sideLength(const Point & p1, const Point & p2)
 {
@@ -38,7 +38,7 @@ double Triangle::sideLength(const Point & p1, const Point & p2)
 }
 
 /**
-*@brief Âû÷èñëÿåì ïåðèìåòð òðåóãîëüíèêà.
+*@brief Ð’Ñ‹Ñ‡Ð¸ÑÐ»ÑÐµÐ¼ Ð¿ÐµÑ€Ð¸Ð¼ÐµÑ‚Ñ€ Ñ‚Ñ€ÐµÑƒÐ³Ð¾Ð»ÑŒÐ½Ð¸ÐºÐ°.
 */
 double Triangle::perimeter()
 {
@@ -46,7 +46,7 @@ double Triangle::perimeter()
 }
 
 /**
-*@brief Âû÷èñëÿåì êîîðäèíàòû öåíòðà îïèñàííîé îêðóæíîñòè.
+*@brief Ð’Ñ‹Ñ‡Ð¸ÑÐ»ÑÐµÐ¼ ÐºÐ¾Ð¾Ñ€Ð´Ð¸Ð½Ð°Ñ‚Ñ‹ Ñ†ÐµÐ½Ñ‚Ñ€Ð° Ð¾Ð¿Ð¸ÑÐ°Ð½Ð½Ð¾Ð¹ Ð¾ÐºÑ€ÑƒÐ¶Ð½Ð¾ÑÑ‚Ð¸.
 */
 Point Triangle::circumcenter()
 {
