@@ -1,9 +1,9 @@
-#include <limits>
+п»ї#include <limits>
 #include <cmath>
 #include "Point.h"
 
 /**
-*@brief Создает точку по координатам
+*@brief РЎРѕР·РґР°РµС‚ С‚РѕС‡РєСѓ РїРѕ РєРѕРѕСЂРґРёРЅР°С‚Р°Рј
 */
 Point::Point(const double x, const double y) : x{ x }, y{ y }
 {
