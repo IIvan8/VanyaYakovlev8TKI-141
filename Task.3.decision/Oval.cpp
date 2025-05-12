@@ -1,4 +1,4 @@
-#include "Oval.h"
+п»ї#include "Oval.h"
 #include "Point.h"
 #include <iostream>
 #include <sstream>
@@ -20,28 +20,28 @@ bool Oval::isValid() const {
 Oval::Oval(const Point& center, double rx, double ry, double maxCoord)
     : center(center), radiusX(fabs(rx)), radiusY(fabs(ry)), maxCoordinate(maxCoord) {
     if (!isValid()) {
-        throw std::invalid_argument("Недопустимые параметры овала");
+        throw std::invalid_argument("РќРµРґРѕРїСѓСЃС‚РёРјС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РѕРІР°Р»Р°");
     }
 }
 
 std::string Oval::toString() const {
     std::stringstream ss;
-    ss << "Овал с центром в " << center
-        << ", горизонтальным радиусом " << radiusX
-        << " и вертикальным радиусом " << radiusY;
+    ss << "РћРІР°Р» СЃ С†РµРЅС‚СЂРѕРј РІ " << center
+        << ", РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅС‹Рј СЂР°РґРёСѓСЃРѕРј " << radiusX
+        << " Рё РІРµСЂС‚РёРєР°Р»СЊРЅС‹Рј СЂР°РґРёСѓСЃРѕРј " << radiusY;
     return ss.str();
 }
 
 Oval Oval::ReadFromInput(double maxCoord) {
-    std::cout << "Введите координаты центра овала (формат: x y): ";
+    std::cout << "Р’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ С†РµРЅС‚СЂР° РѕРІР°Р»Р° (С„РѕСЂРјР°С‚: x y): ";
     Point center;
     std::cin >> center;
 
-    std::cout << "Введите горизонтальный радиус: ";
+    std::cout << "Р’РІРµРґРёС‚Рµ РіРѕСЂРёР·РѕРЅС‚Р°Р»СЊРЅС‹Р№ СЂР°РґРёСѓСЃ: ";
     double rx;
     std::cin >> rx;
 
-    std::cout << "Введите вертикальный радиус: ";
+    std::cout << "Р’РІРµРґРёС‚Рµ РІРµСЂС‚РёРєР°Р»СЊРЅС‹Р№ СЂР°РґРёСѓСЃ: ";
     double ry;
     std::cin >> ry;
 
