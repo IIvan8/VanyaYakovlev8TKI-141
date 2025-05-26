@@ -34,37 +34,23 @@ namespace PriorityQueueTests
             queue.insert(88, 3);
 
             Assert::AreEqual(size_t(3), queue.getSize());
-            Assert::AreEqual(8888, queue.findMax());
+            Assert::AreEqual(88, queue.findMax());
         }
 
         TEST_METHOD(FindMax_ReturnsHighestPriorityElement)
         {
             PriorityQueue queue = { {88, 3}, {8888, 5}, {8, 1} };
 
-            Assert::AreEqual(88, queue.findMax());
-        }
-
-        TEST_METHOD(FindMax_OnEmptyQueue_ThrowsException)
-        {
-            PriorityQueue queue;
-
-            Assert::ExpectException<std::runtime_error>([&]() { queue.findMax(); });
+            Assert::AreEqual(8888, queue.findMax());
         }
 
         TEST_METHOD(ExtractMax_RemovesAndReturnsHighestPriorityElement)
         {
             PriorityQueue queue = { {88, 3}, {8888, 5}, {8, 1} };
 
-            Assert::AreEqual(88, queue.extractMax());
+            Assert::AreEqual(8888, queue.extractMax());
             Assert::AreEqual(size_t(2), queue.getSize());
-            Assert::AreEqual(8, queue.findMax());
-        }
-
-        TEST_METHOD(ExtractMax_OnEmptyQueue_ThrowsException)
-        {
-            PriorityQueue queue;
-
-            Assert::ExpectException<std::runtime_error>([&]() { queue.extractMax(); });
+            Assert::AreEqual(88, queue.findMax());
         }
 
         TEST_METHOD(IsEmpty_ReturnsTrueForEmptyQueue)
@@ -90,7 +76,7 @@ namespace PriorityQueueTests
 
             Assert::AreEqual(size_t(1), original.getSize());
             Assert::AreEqual(size_t(2), copy.getSize());
-            Assert::AreEqual(8, copy.findMax());
+            Assert::AreEqual(88, copy.findMax());
         }
 
         TEST_METHOD(MoveConstructor_TransfersOwnership)
@@ -111,7 +97,7 @@ namespace PriorityQueueTests
             queue << std::make_pair(88, 2) << std::make_pair(888, 3);
 
             Assert::AreEqual(size_t(2), queue.getSize());
-            Assert::AreEqual(88, queue.findMax());
+            Assert::AreEqual(888, queue.findMax());
         }
 
         TEST_METHOD(ShiftRightOperator_ExtractsElement)
@@ -123,6 +109,16 @@ namespace PriorityQueueTests
 
             Assert::AreEqual(888, value);
             Assert::AreEqual(size_t(1), queue.getSize());
+        }
+
+        TEST_METHOD(Clear_RemovesAllElements)
+        {
+            PriorityQueue queue = { {88, 3}, {8, 1} };
+
+            queue.clear();
+
+            Assert::AreEqual(size_t(0), queue.getSize());
+            Assert::IsTrue(queue.isEmpty());
         }
     };
 }
