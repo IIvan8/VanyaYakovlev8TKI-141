@@ -19,29 +19,29 @@ namespace PriorityQueueTests
 
         TEST_METHOD(InitializerListConstructor_CreatesQueueWithElements)
         {
-            PriorityQueue queue = { {10, 3}, {20, 1}, {30, 5} };
+            PriorityQueue queue = { {88, 3}, {8, 1}, {8888, 5} };
 
             Assert::AreEqual(size_t(3), queue.getSize());
-            Assert::AreEqual(30, queue.findMax());
+            Assert::AreEqual(8888, queue.findMax());
         }
 
         TEST_METHOD(Insert_AddsElementWithPriority)
         {
             PriorityQueue queue;
 
-            queue.insert(10, 2);
-            queue.insert(20, 1);
-            queue.insert(30, 3);
+            queue.insert(8888, 2);
+            queue.insert(8, 1);
+            queue.insert(88, 3);
 
             Assert::AreEqual(size_t(3), queue.getSize());
-            Assert::AreEqual(30, queue.findMax());
+            Assert::AreEqual(8888, queue.findMax());
         }
 
         TEST_METHOD(FindMax_ReturnsHighestPriorityElement)
         {
-            PriorityQueue queue = { {10, 3}, {20, 5}, {30, 1} };
+            PriorityQueue queue = { {88, 3}, {8888, 5}, {8, 1} };
 
-            Assert::AreEqual(20, queue.findMax());
+            Assert::AreEqual(88, queue.findMax());
         }
 
         TEST_METHOD(FindMax_OnEmptyQueue_ThrowsException)
@@ -53,11 +53,11 @@ namespace PriorityQueueTests
 
         TEST_METHOD(ExtractMax_RemovesAndReturnsHighestPriorityElement)
         {
-            PriorityQueue queue = { {10, 3}, {20, 5}, {30, 1} };
+            PriorityQueue queue = { {88, 3}, {8888, 5}, {8, 1} };
 
-            Assert::AreEqual(20, queue.extractMax());
+            Assert::AreEqual(88, queue.extractMax());
             Assert::AreEqual(size_t(2), queue.getSize());
-            Assert::AreEqual(10, queue.findMax());
+            Assert::AreEqual(8, queue.findMax());
         }
 
         TEST_METHOD(ExtractMax_OnEmptyQueue_ThrowsException)
@@ -76,26 +76,26 @@ namespace PriorityQueueTests
 
         TEST_METHOD(IsEmpty_ReturnsFalseForNonEmptyQueue)
         {
-            PriorityQueue queue = { {10, 1} };
+            PriorityQueue queue = { {8, 1} };
 
             Assert::IsFalse(queue.isEmpty());
         }
 
         TEST_METHOD(CopyConstructor_CreatesIndependentCopy)
         {
-            PriorityQueue original = { {10, 3}, {20, 1} };
+            PriorityQueue original = { {88, 3}, {8, 1} };
 
             PriorityQueue copy(original);
             original.extractMax();
 
             Assert::AreEqual(size_t(1), original.getSize());
             Assert::AreEqual(size_t(2), copy.getSize());
-            Assert::AreEqual(10, copy.findMax());
+            Assert::AreEqual(8, copy.findMax());
         }
 
         TEST_METHOD(MoveConstructor_TransfersOwnership)
         {
-            PriorityQueue original = { {10, 3}, {20, 1} };
+            PriorityQueue original = { {88, 3}, {8, 1} };
 
             PriorityQueue moved(std::move(original));
 
@@ -108,20 +108,20 @@ namespace PriorityQueueTests
         {
             PriorityQueue queue;
 
-            queue << std::make_pair(10, 2) << std::make_pair(20, 3);
+            queue << std::make_pair(88, 2) << std::make_pair(888, 3);
 
             Assert::AreEqual(size_t(2), queue.getSize());
-            Assert::AreEqual(20, queue.findMax());
+            Assert::AreEqual(88, queue.findMax());
         }
 
         TEST_METHOD(ShiftRightOperator_ExtractsElement)
         {
-            PriorityQueue queue = { {10, 3}, {20, 1} };
+            PriorityQueue queue = { {888, 3}, {8, 1} };
             int value = 0;
 
             queue >> value;
 
-            Assert::AreEqual(10, value);
+            Assert::AreEqual(888, value);
             Assert::AreEqual(size_t(1), queue.getSize());
         }
     };

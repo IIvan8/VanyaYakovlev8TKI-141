@@ -8,7 +8,7 @@ int main() {
     setlocale(LC_ALL, "Russian");
     PriorityQueue queue = { {8, 1}, {88, 3}, {888, 2}, {8888, 5} };
     cout << "Начальная очередь:\n" << queue.toString() << endl;
-    queue << std::make_pair(50, 4) << make_pair(60, 0);
+    queue << std::make_pair(88888, 4) << make_pair(888888, 0);
     cout << "После добавления элементов:\n" << queue.toString() << endl;
     cout << "Извлечение элементов в порядке приоритета:\n";
     while (!queue.isEmpty()) {
